@@ -45,4 +45,3 @@ class StoreQuestionRequest extends FormRequest
         ];
     }
 }
-s
