@@ -34,7 +34,7 @@ class StoreQuestionRequest extends FormRequest
      *
      * @return array
      */
-    public function messages()
+    public function message()
     {
         return[
             'title.required' => '标题不能为空',
@@ -45,3 +45,4 @@ class StoreQuestionRequest extends FormRequest
         ];
     }
 }
+s
