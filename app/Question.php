@@ -9,4 +9,8 @@ class Question extends Model
     protected $fillable = [
         'title', 'body', 'user_id'
     ];
+    public function topics()
+    {
+        $this->belongsToMany(Topic::class)->withTimestamps();
+    }
 }
