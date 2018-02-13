@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Overtrue\LaravelSendCloud\SendCloud;
@@ -41,5 +42,14 @@ class User extends Authenticatable
             'html' => '<h3>HELLO  '.$this->name.'</h3><br>'.
                       '<p><a href="'.url(config('app.url').route('password.reset', $token, false)).'">点击去设置新密码</a></p>'
         ]);
+    }
+
+    public function owns(Model $model)
+    {
+       return $this->id == $model->user_id;
+    }
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
     }
 }

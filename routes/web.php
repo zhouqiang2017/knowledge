@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'QuestionsController@index');
+Auth::loginUsingId(1);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/email/verify/{token}', 'EmailController@verify')->name('email.verify');
 Route::resource('questions', 'QuestionsController');
+Route::post('question/{question}/answer', 'AnswersController@store');
