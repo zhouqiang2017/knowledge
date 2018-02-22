@@ -14,4 +14,8 @@ class AnswerRepository
     {
         return Answer::firstOrCreate($attributes);
     }
+    public function getAnswerById($id)
+    {
+        return Answer::findOrFail($id);
+    }
 }

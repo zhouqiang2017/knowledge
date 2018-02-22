@@ -38,6 +38,9 @@ a.topic:hover {
 .pull-right{
   float: right;
 }
+.pull-left{
+  float: left;
+}
 .is-naked{
   background: 0 0;
   border: none;
@@ -55,4 +58,16 @@ a.topic:hover {
 .delete-btn{
   color:#3097D1;
   text-decoration: none;
+}
+.user-statics , .user-actions {
+  margin: 20px auto;
+}
+.user-statics {
+  display: -webkit-box;
+}
+.statics-item {
+  padding: 2px 20px;
+}
+.padding-b-15{
+  padding-bottom: 15px!important;
 }
