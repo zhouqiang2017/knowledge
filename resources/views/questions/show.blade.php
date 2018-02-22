@@ -26,6 +26,7 @@
                                 <button class="button is-naked delete-btn">删 除</button>
                             </form>
                         @endif
+                            <commnets type="question" model="{{ $question->id }}" count="{{ $question->comments_count }}"></commnets>
                     </div>
                 </div>
             </div>
@@ -64,6 +65,7 @@
                                     </h4>
                                     {!! $answer->body !!}
                                 </div>
+                                <commnets type="answer" model="{{ $answer->id }}" count="{{ $answer->comments()->count()}}"></commnets>
                             </div>
                         @endforeach
                         @if(Auth::check())
