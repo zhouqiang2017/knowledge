@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-                class="btn is_naked delete-btn pull-right"
+                class="btn delete-btn pull-right"
                 @click="showCommentsForm"
                 v-text="text"
 

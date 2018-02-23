@@ -70,7 +70,7 @@ class CommentsController extends Controller
         return $this->comment->createComment([
             'commentable_id' => request('model'),
             'commentable_type' => $model,
-            'user_id' => Auth::guard('api')->user()->id,
+            'user_id' => user('api')->id,
             'body' => request('body')
         ]);
     }
