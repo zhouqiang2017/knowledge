@@ -4,15 +4,33 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Comment
+ * @package App
+ */
 class Comment extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'comments';
-    protected $fillable = ['user_id','body','commentable_id','comment_type','parent_id','level','is_hidden'];
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['user_id', 'body', 'commentable_id', 'commentable_type'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function commentable()
     {
         return $this->morphTo();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);

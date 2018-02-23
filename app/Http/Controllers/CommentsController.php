@@ -11,13 +11,13 @@ class CommentsController extends Controller
 {
     public function answer($id)
     {
-        $commnets = Answer::with('commnets','commnet.user')->where('commnetable_id',$id)->firstOrFail();
+        $commnets = Answer::with('commnets','commnet.user')->where('commentable_id',$id)->firstOrFail();
 //        return response()->json([]);
         return $commnets;
     }
     public function question($id)
     {
-        $commnets = Question::with('commnets','commnet.user')->where('commnetable_id',$id)->firstOrFail();
+        $commnets = Question::with('commnets','commnet.user')->where('commentable_id',$id)->firstOrFail();
 //        return response()->json([]);
         return $commnets;
     }

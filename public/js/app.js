@@ -10988,7 +10988,7 @@ module.exports = defaults;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.9
+ * @version 1.13.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -48850,7 +48850,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         store: function store() {
-            axios.post('/api/comment', { 'type': this.type, 'model': this.model, 'body': this.body }).then(function (response) {
+            axios.post('/api/comment', {
+                'type': this.type,
+                'model': this.model,
+                'body': this.body
+            }).then(function (response) {
                 console.log(response.data);
             });
         },
@@ -48858,10 +48862,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.getComments();
             $(this.dialogId).modal('show');
         },
-        getCommnets: function getCommnets() {
+        getComments: function getComments() {
             var _this = this;
 
-            axios.get('/api/' + this.type + '/' + this.model + '/commnets').then(function (response) {
+            axios.get('/api/' + this.type + '/' + this.model + '/comments').then(function (response) {
                 _this.comments = response.data.comments;
             });
         }

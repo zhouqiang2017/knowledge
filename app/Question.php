@@ -32,6 +32,6 @@ class Question extends Model
 
     public function comments()
     {
-        return $this->morphToMany('App\Comments','commentable');
+        return $this->morphMany('App\Comment','commentable');
     }
 }

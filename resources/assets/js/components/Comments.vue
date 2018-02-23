@@ -50,37 +50,41 @@
 
 <script>
     export default {
-        props: ['type','model','count'],
+        props: ['type', 'model', 'count'],
         data() {
             return {
                 body: '',
                 comments: []
             }
         },
-        computed:{
-            dialog(){
-                return 'comment-dialog-'+ this.type + this.model;
+        computed: {
+            dialog() {
+                return 'comment-dialog-' + this.type + this.model;
             },
-            dialogId(){
-                return '#'+ this.dialog;
+            dialogId() {
+                return '#' + this.dialog;
             },
-            text(){
+            text() {
                 return this.count + '评论'
             }
         },
         methods: {
             store() {
-                axios.post('/api/comment', {'type': this.type,'model':this.model ,'body': this.body}).then(response => {
-                        console.log(response.data)
+                axios.post('/api/comment', {
+                    'type': this.type,
+                    'model': this.model,
+                    'body': this.body
+                }).then(response => {
+                    console.log(response.data)
                 })
             },
             showCommentsForm() {
                 this.getComments();
                 $(this.dialogId).modal('show');
             },
-            getCommnets(){
-                axios.get('/api/'+ this.type + '/'+ this.model +'/commnets').then(response=> {
-                        this.comments = response.data.comments;
+            getComments() {
+                axios.get('/api/' + this.type + '/' + this.model + '/comments').then(response => {
+                    this.comments = response.data.comments;
                 })
             }
         }
