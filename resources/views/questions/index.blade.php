@@ -22,6 +22,7 @@
                         </div>
                     @endforeach
                 </div>
+                <a href="{{ route('questions.create') }}" class="btn btn-success btn-block">发布问题</a>
             </div>
         </div>
     </div>

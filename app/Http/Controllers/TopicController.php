@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\Repositories\TopicRepository;
+use App\Repositories\TopicRepository;
 use Illuminate\Http\Request;
 
 /**
@@ -16,7 +16,6 @@ class TopicController extends Controller
      * @var \app\Repositories\TopicRepository
      */
     protected $topic;
-
     /**
      * TopicController constructor.
      *
@@ -26,7 +25,6 @@ class TopicController extends Controller
     {
         $this->topic = $topic;
     }
-
     /**
      * @param \Illuminate\Http\Request $request
      *

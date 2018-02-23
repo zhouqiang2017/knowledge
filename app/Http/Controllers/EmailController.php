@@ -21,7 +21,7 @@ class EmailController extends Controller
             flash('邮箱未激活！','danger');
             return redirect('/');
         }
-        // 重置comfirmation_token 确保
+        // 重置comfirmation_token 确保唯一性
         $user->confirmation_token = str_random(40);
         $user->is_active = 1;
         $user->save();

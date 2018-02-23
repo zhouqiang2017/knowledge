@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Repositories\AnswerRepository;
 use App\Repositories\CommentRepository;
-use app\Repositories\CommentsRepository;
 use App\Repositories\QuestionRepository;
 use Auth;
 /**

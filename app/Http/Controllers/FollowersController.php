@@ -19,7 +19,7 @@ class FollowersController extends Controller
     {
         $user = $this->user->getUserById($id);
         $followers = $user->followersUser()->pluck('follower_id')->toArray();
-        if(in_array(Auth::guard('api')->user()->id, $followers)){
+        if(in_array(user('api')->id, $followers)){
             return response()->json(['followed' => true]);
         }
         return response()->json(['followed' => false]);
