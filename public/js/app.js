@@ -48833,7 +48833,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             body: '',
-            comments: []
+            comments: [],
+            newComment: {
+                user: {
+                    name: know.name,
+                    avatar: know.avatar
+                },
+                body: ''
+            }
         };
     },
 
@@ -48850,12 +48857,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         store: function store() {
+            var _this = this;
+
             axios.post('/api/comment', {
                 'type': this.type,
                 'model': this.model,
                 'body': this.body
             }).then(function (response) {
-                console.log(response.data);
+                _this.newComment.body = response.data.body;
+                _this.comments.push(_this.newComment);
+                _this.body = '';
+                _this.count++;
+                //                    console.log(response.data)
             });
         },
         showCommentsForm: function showCommentsForm() {
@@ -48863,10 +48876,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             $(this.dialogId).modal('show');
         },
         getComments: function getComments() {
-            var _this = this;
+            var _this2 = this;
 
             axios.get('/api/' + this.type + '/' + this.model + '/comments').then(function (response) {
-                _this.comments = response.data.comments;
+                _this2.comments = response.data;
             });
         }
     }
@@ -48882,7 +48895,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("button", {
-      staticClass: "btn is_naked delete-btn",
+      staticClass: "btn is_naked delete-btn pull-right",
       domProps: { textContent: _vm._s(_vm.text) },
       on: { click: _vm.showCommentsForm }
     }),
@@ -48909,6 +48922,7 @@ var render = function() {
                             _c("img", {
                               staticClass: "media-object",
                               attrs: {
+                                width: "20",
                                 src: comment.user.avatar,
                                 alt: "comment.user.name"
                               }

@@ -21,6 +21,11 @@ class QuestionRepository
         return Question::with(['topics','answers'])->findOrFail($id);
     }
 
+    /**
+     * @param array $attributes
+     *
+     * @return mixed
+     */
     public function createQuestion(array $attributes)
     {
         return Question::firstOrCreate($attributes);
@@ -43,9 +48,23 @@ class QuestionRepository
         Topic::whereIn('id', $ids)->increment('questions_count');
         return $ids;
     }
+
+    /**
+     * @return mixed
+     */
     public function getQuestionsFeed()
     {
         return Question::published()->latest('updated_at')->with('user')->get();
+    }
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function getQuestionCommentsById($id)
+    {
+        return Question::with('comments','comments.user')->where('id',$id)->firstOrFail()->comments;
     }
 
 

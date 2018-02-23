@@ -26,7 +26,7 @@
                                 <button class="button is-naked delete-btn">删 除</button>
                             </form>
                         @endif
-                            <comments type="question" model="{{ $question->id }}" count="{{ $question->comments_count }}"></comments>
+                            <comments type="question" model="{{ $question->id }}" count="{{ $question->comments()->count() }}"></comments>
                     </div>
                 </div>
             </div>

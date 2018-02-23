@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-                class="btn is_naked delete-btn"
+                class="btn is_naked delete-btn pull-right"
                 @click="showCommentsForm"
                 v-text="text"
 
@@ -22,7 +22,7 @@
                             <div class="media" v-for="comment in comments">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" :src="comment.user.avatar" alt="comment.user.name">
+                                        <img width="20" class="media-object" :src="comment.user.avatar" alt="comment.user.name">
                                     </a>
                                 </div>
                                 <div class="media-body">
@@ -54,7 +54,14 @@
         data() {
             return {
                 body: '',
-                comments: []
+                comments: [],
+                newComment:{
+                    user:{
+                        name:know.name,
+                        avatar:know.avatar
+                    },
+                    body:''
+                },
             }
         },
         computed: {
@@ -75,7 +82,11 @@
                     'model': this.model,
                     'body': this.body
                 }).then(response => {
-                    console.log(response.data)
+                    this.newComment.body = response.data.body;
+                    this.comments.push(this.newComment);
+                    this.body = '';
+                    this.count++
+//                    console.log(response.data)
                 })
             },
             showCommentsForm() {
@@ -84,7 +95,7 @@
             },
             getComments() {
                 axios.get('/api/' + this.type + '/' + this.model + '/comments').then(response => {
-                    this.comments = response.data.comments;
+                    this.comments = response.data;
                 })
             }
         }

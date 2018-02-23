@@ -19,6 +19,12 @@
         ]) !!};
 
         Laravel.apiToken = "{{ Auth::check() ? 'Bearer '.Auth::user()->api_token : 'Bearer ' }}";
+        @if(Auth::check())
+            window.know = {
+            name: "{{ Auth::user()->name }}",
+            avatar: "{{ Auth::user()->avatar }}"
+        }
+        @endif
     </script>
     @yield('css')
 
