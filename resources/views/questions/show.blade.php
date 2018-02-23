@@ -122,8 +122,10 @@
                                     <div class="statics-count">{{ $question->user->followers_count }}</div>
                                 </div>
                             </div>
+                        @if(Auth::check())
                             <user-follow-button user="{{ $question->user->id }}"></user-follow-button>
                             <send-message user="{{ $question->user->id }}"></send-message>
+                        @endif
                         </div>
                 </div>
 
