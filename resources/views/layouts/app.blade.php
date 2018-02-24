@@ -57,7 +57,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                <img class="avatar-topnav" src="{{ Auth::user()->avatar }}" alt="">
+                               <img class="avatar-topnav" src="{{ Auth::user()->avatar }}" alt="" onclick="window.location.href='/avatar'">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

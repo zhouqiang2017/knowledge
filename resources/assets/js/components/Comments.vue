@@ -55,13 +55,6 @@
             return {
                 body: '',
                 comments: [],
-                newComment:{
-                    user:{
-                        name:know.name,
-                        avatar:know.avatar
-                    },
-                    body:''
-                },
             }
         },
         computed: {
@@ -82,8 +75,14 @@
                     'model': this.model,
                     'body': this.body
                 }).then(response => {
-                    this.newComment.body = response.data.body;
-                    this.comments.push(this.newComment);
+                    let comment = {
+                        user:{
+                            name:know.name,
+                            avatar:know.avatar
+                        },
+                        body: response.data.body
+                    }
+                    this.comments.push(comment);
                     this.body = '';
                     this.count++
 //                    console.log(response.data)
