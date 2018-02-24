@@ -10646,7 +10646,15 @@ a.text-dark:focus {
   border-color: #5897fb;
 }
 
+body {
+  background: url("/image/banner.jpg") no-repeat center;
+  background-size: 100% 100%;
+  height: 100vh;
+}
+
 .navbar-laravel {
+  background: url("/image/banner.jpg") no-repeat center;
+  background-size: 100% 100%;
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10725,5 +10733,9 @@ a.topic:hover {
 
 .padding-b-15 {
   padding-bottom: 15px !important;
+}
+
+.message-list {
+  margin-top: 88px;
 }
 

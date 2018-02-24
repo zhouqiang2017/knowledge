@@ -14,7 +14,7 @@ class AddDialogIdToMessages extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->bigInteger('dialog_id')->default(24);
+            $table->bigInteger('dialog_id')->default(12);
         });
     }
 
