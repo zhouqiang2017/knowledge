@@ -33,7 +33,7 @@ class ChangePasswordRequest extends FormRequest
          return [
              'old_password.required' => '原始密码不能为空',
              'old_password.min' => '原始密码不能少于6个字符',
-             'password.required' => '新始密码不能为空',
+             'password.required' => '新密码不能为空',
              'password.min' => '新密码不能少于6个字符',
              'password.confirmed' => '两次输入新密码不符',
          ];
