@@ -21,6 +21,9 @@
     },
     "dependencies": {
         "babel-polyfill": "^6.26.0",
+        "npm": "^5.6.0",
+        "to": "^0.2.9",
+        "update": "^0.7.4",
         "vue-image-crop-upload": "^2.2.3"
     }
 }
