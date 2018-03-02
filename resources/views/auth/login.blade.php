@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -51,6 +52,13 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+
+                                <a class="btn btn-primary" href="/social/login/github">
+                                    <!--brand icon-->
+                                    <i class="fab fa-github-square"></i>
+                                    github 登录
+                                </a>
+
                                 <button type="submit" class="btn btn-primary">
                                     登 录
                                 </button>

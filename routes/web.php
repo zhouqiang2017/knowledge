@@ -30,3 +30,5 @@ Route::get('password','PasswordController@password');
 Route::post('password/update','PasswordController@update');
 Route::get('setting','SettingController@index');
 Route::post('setting','SettingController@store');
+Route::get('social/login/{driver}','SocialController@index');
+Route::get('social/callback/{driver}','SocialController@callback');

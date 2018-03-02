@@ -92,6 +92,7 @@
 <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 </script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 @yield('js')
 </body>
 </html>
